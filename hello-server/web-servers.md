@@ -1,0 +1,51 @@
+# Web Servers and HTTP
+- The best program in the world means nothing unless people have some way to communicate with it.
+    - Desktop Application which uses a Graphical User Interace
+    - A console applications that just prints to the terminal and people type into it
+    - ***Web Servers*** are programs/appplications that can take in inupts via HTTP.
+
+## HTTP
+- HTTP **Hyper Text Transfer Protocol**
+- It is a request response based protocol.
+    - A user/client makes an **HTTP Request** 
+    - The server/web-server responds with an **HTTP Response**
+    - Every Request is guaranteed to generate a response
+- Web Servers and HTTP are supposed to be Language Agnostic
+    - The client does NOT need to know what programming language the server is written
+
+## Anatomy of an HTTP or HTTP(S) Request and Response
+- **Request**
+    - URL
+        - Uniform Resource Locator
+        - The address of where to send the Request
+    - Verb
+        - The type of HTTP Request it is
+            - GET - (*usually* for retrieving information)
+            - POST
+            - PUT
+            - DELETE
+            - PATCH
+    - Headers
+        - Key value pairs that contain meta-data on the request
+            - The content-type (image, text, JSON, etc...)
+            - Authorization (specific Key necessary for security)
+    - Body
+        - Main content of a request
+        - OPTIONAL
+            - Requests do not NEED to send content
+- **Response**
+    - Status Code
+        - a number indicator how the request was processed
+        - 100's information
+        - 200's success
+        - 300's redirects
+        - 400's client error
+            - 403 client does not have appropriate access
+            - 404 client requested a URL that does not exist
+            - 451 Unavailable for legal reasons
+        - 500's (server error)
+    - Body
+        - OPTIONAL
+        - content
+    - Headers
+        - key value pairs
