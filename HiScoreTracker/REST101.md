@@ -1,0 +1,35 @@
+# REST
+- **RE**presentational **S**tate **T**ransfer
+- RESTful architecture is a very common design for web servers
+- RESTful web servers are for keeping track of **resouces**
+- A resource can be almost anything.
+    - People
+    - Cars
+    - Hi Scores
+- RESTful web servers support basic **CRUD** operations
+    - **CREATE**
+        - POST
+    - **READ**
+        - GET
+    - **UPDATE**
+        - PUT
+        - PATCH
+    - **DELETE**
+        - DELETE
+- HTTP verbs are used to denote *what* the request will do to the resource 
+- The URI (Uniform Resource Identifier)
+    - URL espn.com/ncaaf/gators
+        - URI /ncaaf/gators
+- Routes for an example resource doctors
+    - GET /doctors
+        - Should return all doctors
+    - POST /doctors
+        - create a new doctor
+    - GET /doctors/15
+        - return a single doctor whose ID is 15
+    - DELETE /doctors/26
+        - remove the doctor whose ID is 26
+    - PUT /doctors/12
+        - replace the doctor whose ID is 12
+    - PATCH /doctors/2
+        - Update the doctor whose is is 2
