@@ -1,1 +1,1 @@
-[{"fname":"Micheal","lname":"Fletcher","points":3000,"id":"3190a690-02e1-453c-8cab-1bed6fb50403"},{"fname":"John","lname":"G","points":4000,"id":"9c243c88-ea17-4997-aa7b-67c420713cbb"}]
+[{"fname":"fletch","lname":"fletcher","points":60000,"id":"3190a690-02e1-453c-8cab-1bed6fb50403"},{"fname":"Mahta","lname":"G","points":3000,"id":"219d575a-4337-413e-8d0c-b4d8592e8b19"}]

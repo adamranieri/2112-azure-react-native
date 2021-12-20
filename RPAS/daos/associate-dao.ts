@@ -5,6 +5,7 @@
 import Associate from "../entities/associate";
 import {v4} from 'uuid';
 import {readFile, writeFile} from 'fs/promises';
+import NotFoundError from "../errors/not-found-error";
 
 export default interface AssociateDAO{
 
@@ -19,7 +20,7 @@ export default interface AssociateDAO{
     updateAssociate(associate: Associate): Promise<Associate>;
 
     //DELETE
-    deleteAssociate(associate: Associate): Promise<Associate>;
+    deleteAssociateById(id: string): Promise<Associate>;
 }
 
 // implementation class that will use a local file
@@ -27,25 +28,64 @@ export class AssociateDaoLocalFile implements AssociateDAO{
 
     async createAssociate(associate: Associate): Promise<Associate> {
         associate.id = v4();
-        const associateData  = await readFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt');
+        const associateData: Buffer  = await readFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt');
         const associates: Associate[] = JSON.parse(associateData.toString())
         associates.push(associate);
         writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt', JSON.stringify(associates));// (path, data to write)
         return associate;
     }
 
-    getAllAssociates(): Promise<Associate[]> {
-        throw new Error("Method not implemented.");
+    async getAllAssociates(): Promise<Associate[]> {
+        const associateData: Buffer = await readFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt');
+        const associates: Associate[] = JSON.parse(associateData.toString());
+        return associates;
     }
 
-    getAssociateById(id: string): Promise<Associate> {
-        throw new Error("Method not implemented.");
+    async getAssociateById(id: string): Promise<Associate> {
+        //const associateData: Buffer = await readFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt');
+        const associates: Associate[] = await  this.getAllAssociates()
+        const associate: Associate = associates.find(a => a.id === id);
+
+        if(!associate){
+            throw new NotFoundError("Associate could not be found", id);
+        }
+
+        return associate;
     }
-    updateAssociate(associate: Associate): Promise<Associate> {
-        throw new Error("Method not implemented.");
+
+
+    async updateAssociate(associate: Associate): Promise<Associate> {
+        const associates: Associate[] = await this.getAllAssociates();
+        let found = false;
+        for(let i = 0; i < associates.length; i++){
+            if(associates[i].id === associate.id){
+                associates[i] = associate;
+                found = true;
+            }
+        }
+        if(!found){
+            throw new NotFoundError("Associate could not be found for an update", associate.id);
+        }
+
+        writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt',JSON.stringify(associates))
+
+        return associate;
     }
-    deleteAssociate(associate: Associate): Promise<Associate> {
-        throw new Error("Method not implemented.");
+
+    async deleteAssociateById(id: string): Promise<Associate> {
+        const associates: Associate[] = await this.getAllAssociates();
+        const associate: Associate = await this.getAssociateById(id);
+
+        for(let i = 0; i < associates.length; i++){
+            if(associates[i].id === id){
+                associates.splice(i,1);
+            }
+        }
+
+        writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt',JSON.stringify(associates))
+
+        return associate;
+
     }
     
 }
