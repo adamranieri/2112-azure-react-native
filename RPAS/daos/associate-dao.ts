@@ -15,6 +15,8 @@ export default interface AssociateDAO{
     //READ
     getAllAssociates(): Promise<Associate[]>;
     getAssociateById(id: string): Promise<Associate>;
+    getAssociatesPointsGreaterThan(points: number): Promise<Associate[]>;
+    
 
     //UPDATE
     updateAssociate(associate: Associate): Promise<Associate>;
@@ -25,13 +27,16 @@ export default interface AssociateDAO{
 
 // implementation class that will use a local file
 export class AssociateDaoLocalFile implements AssociateDAO{
+    getAssociatesPointsGreaterThan(points: number): Promise<Associate[]> {
+        throw new Error("Method not implemented.");
+    }
 
     async createAssociate(associate: Associate): Promise<Associate> {
         associate.id = v4();
         const associateData: Buffer  = await readFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt');
         const associates: Associate[] = JSON.parse(associateData.toString())
         associates.push(associate);
-        writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt', JSON.stringify(associates));// (path, data to write)
+        await writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt', JSON.stringify(associates));// (path, data to write)
         return associate;
     }
 
@@ -67,7 +72,7 @@ export class AssociateDaoLocalFile implements AssociateDAO{
             throw new NotFoundError("Associate could not be found for an update", associate.id);
         }
 
-        writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt',JSON.stringify(associates))
+        await writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt',JSON.stringify(associates))
 
         return associate;
     }
@@ -75,14 +80,19 @@ export class AssociateDaoLocalFile implements AssociateDAO{
     async deleteAssociateById(id: string): Promise<Associate> {
         const associates: Associate[] = await this.getAllAssociates();
         const associate: Associate = await this.getAssociateById(id);
+        let found = false;
 
         for(let i = 0; i < associates.length; i++){
             if(associates[i].id === id){
                 associates.splice(i,1);
+                found = true;
             }
         }
+        if(!found){
+            throw new NotFoundError("Associate was not found and could not be deleted", id);
+        }
 
-        writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt',JSON.stringify(associates))
+        await writeFile('C:\\Users\\AdamRanieri\\Desktop\\RPAS\\associatedata.txt',JSON.stringify(associates))
 
         return associate;
 

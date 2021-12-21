@@ -1,18 +1,19 @@
 import express from 'express';
 import AssociateDAO, { AssociateDaoLocalFile } from './daos/associate-dao';
+import AssociateDaoAzure from './daos/associate-dao-azure';
 import Associate from './entities/associate';
 import NotFoundError from './errors/not-found-error';
 
 const app = express();
 app.use(express.json())
 
-const associateDao: AssociateDAO = new AssociateDaoLocalFile();
+const associateDao: AssociateDAO = new AssociateDaoAzure();
 
-app.get('/hello', (req, res)=>{
-    res.send("Hello");
-})
-
+// DO NOT PUT QUERY PARAMS IN THE PATH. THEY ARE NOT A SEPERATE PATH
+// /associates?pointsgreaterthan=1000
 app.get("/associates", async (req,res)=>{
+    const {pointsgreaterthan} = req.query
+    
     const associates: Associate[] = await associateDao.getAllAssociates();
     res.send(associates)
 });
