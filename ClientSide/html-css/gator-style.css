@@ -1,0 +1,32 @@
+tr{color: purple;}
+p{color: blue;}
+html{background-color: black;}
+
+.championship{
+    color: coral;
+}
+h3.championship{
+    color: antiquewhite;
+}
+tr:hover{background-color: darkkhaki;}
+
+
+.container {  display: grid;
+    grid-template-columns: 0.6fr 1.2fr 1.2fr 0.8fr 1.2fr 1fr;
+    grid-template-rows: 0.6fr 1fr 0.4fr 1.7fr 1.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      ". . . . . ."
+      ". intro intro intro intro ."
+      ". . . . . ."
+      ". heismanlist . championtable championtable ."
+      ". . . . . .";
+  }
+  
+  .intro { grid-area: intro; }
+  
+  .heismanlist { grid-area: heismanlist; }
+  
+  .championtable { grid-area: championtable; }
+  
