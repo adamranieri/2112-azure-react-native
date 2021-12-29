@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DOM 101</title>
+    <script>
+        // the order of your script tags matter    
+        console.log("Hello from the top script tag");
+        const fname = "Adam"; // once you execute something in a script tag it is part of the environment
+    </script>
+</head>
+<body>
+    <h1>Hello</h1>
+
+    <button onclick="sayHello()">Click me!</button>
+    <button id="holaBtn">pulsa me!</button>
+    
+</body>
+<script>
+    const holaBtn = document.getElementById("holaBtn");
+    holaBtn.addEventListener("click",hola);// eventlistenr listens for an event then when that event happens invokes the callback function
+
+    function sayHello(){
+        console.log("hello")
+        alert("Hello everyone")
+    }
+
+    function hola(){
+        console.log("Hola")
+    }
+
+    console.log("Hello from the bottom script tag!!");
+    console.log(fname)
+</script>
+</html>

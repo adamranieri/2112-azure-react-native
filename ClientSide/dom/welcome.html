@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome</h1>
+
+    <label for="nameInput">Name</label>
+    <input id="nameInput" type="text" placeholder="billy" value="">
+
+    <button id="greetBtn" onclick="greet(event)">Get Greeted</button>
+
+    <h3 id="responseHeading">Welcome will go in this tag</h3>
+    
+</body>
+<script>
+    const nameInput = document.getElementById("nameInput");
+    const responseHeading = document.getElementById("responseHeading");
+
+    //JS automically passed an Event object into functions called from an eventListener or from a function called in the html
+    // This event object has a lot of really helpful information
+
+    /**@param event {Event} */
+    function greet(event){
+        const name = nameInput.value;
+        responseHeading.innerHTML = `Welcome <em> ${name} </em> `;
+    }
+
+</script>
+</html>
