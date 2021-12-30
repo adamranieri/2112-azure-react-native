@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <input id="pokeInput">
+    <button onclick="getPokemon()">Get That Pokemon!</button>
+
+    <table>
+        <thead><th>Pokemon Name</th><th>height</th><th>Type</th></thead>
+        <tbody id="pokeTable">
+        </tbody>
+    </table>
+    <img id="pokeImage" src="" alt="A pokemon goes here" >
+
+</body>
+<script>
+    const pokeInput = document.getElementById("pokeInput");
+    const pokeTable = document.getElementById("pokeTable");
+    const pokeImage = document.getElementById("pokeImage");
+
+    async function getPokemon(){
+        // fetch is an API for the browser that allows JS to make HTTP requests
+        // It is ASYNCHRONOUS and uses promises
+        const pokemon = pokeInput.value
+        const httpResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+        const body = await httpResponse.json()// will parse JSON body into an object
+        console.log(body)
+        // HTTP responses come back in 2 parts
+        // 1. you recive the HTTP reponse Headers
+        // 2. the body of the response is downloaded
+        pokeTable.innerHTML = `<tr><td>${body.name}</td><td>${body.height}</td><td>${body.types[0].type.name}</td> </tr>`
+        pokeImage.src = body.sprites.front_shiny;
+        
+    }
+</script>
+</html>

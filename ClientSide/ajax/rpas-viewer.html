@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <h1>RPAS</h1>
+    <h3>RevaPoints Allocation System</h3>
+
+    <h4>Associates</h4>
+    <table>
+        <thead><th>ID</th><th>Name</th><th>Points</th></thead>
+        <tbody id="associateTableBody">
+
+        </tbody>
+    </table>
+
+    <h4>Add new Associate</h4>
+    <label for="fnameInput">First Name</label>
+    <input type="text" id="fnameInput">
+
+    <label for="lnameInput">Last Name</label>
+    <input type="text" id="lnameInput">
+
+    <label for="pointsInput">Points Input</label>
+    <input type="text" id="pointsInput">
+
+    <button onclick="addAssociate()">Add Associate</button>
+    
+</body>
+<script>
+    const associateTableBody = document.getElementById("associateTableBody");
+    const fnameInput = document.getElementById("fnameInput");
+    const lnameInput = document.getElementById("lnameInput");
+    const pointsInput = document.getElementById("pointsInput");
+
+    async function getAssociates(){
+        const response = await fetch('http://a723-2603-301f-1625-c000-fce0-1ea5-7200-42e0.ngrok.io/associates');
+        const associates = await response.json();
+        const tableRows = associates.map(a => `<tr><td>${a.id}</td><td>${a.fname + " " + a.lname}</td> <td> ${a.points}</td></tr>`).join("");
+        associateTableBody.innerHTML = tableRows;
+    }
+
+    async function addAssociate(){
+        const fname = fnameInput.value ?? 'Billy';
+        const lname = lnameInput.value ?? 'McDefault';
+        const points = Number(pointsInput.value) ?? 0;
+        const associate = {fname,lname,points}
+
+        const options = {
+            method:"POST",
+            body: JSON.stringify(associate),
+            headers:{
+                'Content-Type':"application/json"
+            }
+        }
+        const response = await fetch('http://a723-2603-301f-1625-c000-fce0-1ea5-7200-42e0.ngrok.io/associates',options)
+
+        if(response.status === 200){
+            alert("Added Associate");
+            getAssociates();
+        }else{
+            alert("FAILURE COULD NOT ADD");
+        }
+    }
+
+    getAssociates()
+
+</script>
+</html>
