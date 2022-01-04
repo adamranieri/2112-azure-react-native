@@ -26,6 +26,19 @@
     - JS
         - React is a very JavaScript focused library
         - It makes heavy use of JS features in the code
-
+- Think in React
+    - "All problems in front-end development stem from state management"
+        - Guy who invented react
+    - Data always flows **down**
+        - State is defined in a parent component and gets passed to children component to use
+        - Children CANNOT directly communicate to a parent
+        - A parent can pass down a *function* that can edit the state in the parent
+    - Strive to make as many **stateless** or **pure** components as possible
+        - Will make your code much easier to build and test
+    - Container vs display components
+        - **Container Components**
+            - Stateful components with many child elements within it
+        - **Display Components**
+            - Stateless whose sole resposiblity is to show off a good UI
     
     
