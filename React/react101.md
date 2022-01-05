@@ -41,4 +41,9 @@
         - **Display Components**
             - Stateless whose sole resposiblity is to show off a good UI
     
-    
+- Redux
+    - Redux is a third-party library for React
+    - It is for state-managment in React
+    - Redux is also a **Deisgn Pattern**
+        - Data flows in one direction
+        - Data flows in a loop
