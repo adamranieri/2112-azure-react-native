@@ -1,0 +1,58 @@
+# Mobile Development
+- People like their smart phones
+- People want to do many common software tasks using their phone
+- Two main solutions
+    - Mobile friendly website
+        - Advantages
+            - Complete access to html/CSS/JS
+            - Access to any browser APIS
+                - Fetch
+                - LocalStorage
+        - Disadvantages
+            - Targeting specific IOS or Android not particuaarly possible
+            - Lose some access to native phone APIS
+                - ability to integrate into the camera, gryoscope, gps......
+            - Cannot be used offline
+    - Create a **native** app for the phone
+        - Advantages
+            - Performance is better
+            - UI might be a better experience because it intrsically uses UI elements used by the phone
+            - Ability to use the home button
+            - Can be used offline
+        - Disadvantages 
+            - Development more difficult
+            - Android and IOS apps
+                - Android apps : Written in Kotlin
+                - IOS apps: written in Swift
+            - Lose access to web APIs
+- A large problem is writing a different app for 2 different types of smart phones
+- Kotlin and Swift are not languages which have tons of developers
+## Solution
+- Have a platform that you can write the App once 
+    - The platoform will generate IOS and Android versions
+    - Flutter 
+        - Desktop
+        - Smart Phones
+        - Web
+    - The main problem with Flutter
+        - **Developers do not know Flutter**
+        - It is a new platform 
+        - It is written in Dart which is not popular
+- Web Developers are going to be the most common developers in today's environment
+    - Companies want to leverage these developers and their skills
+    - Web Developers are going to have certain skills
+        - HTML/CSS/JS
+        - **React** 
+- ***React Native***
+    - A way for React developers to leverage their skills at creating a mobile applicaiton
+    - React Native is cross platform and allows for writing an application in JS that works for Android and IOS
+    - Many web features that you are looking for do not exist
+        - LocalStorage
+        - fetch does not exist
+        - DOM related commands getElementById()
+        - Most CSS
+        - **Anything that is proprietary to a web browser**
+    - Be careful when you write your code to *NOT* include anything that would use a feature on web browser
+- The motto of React Native
+    - *Learn Once Write Anywhere*
+    - You cannot port React web applications to a mobile device
