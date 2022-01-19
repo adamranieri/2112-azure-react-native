@@ -1,5 +1,5 @@
 # Project 1
-# Due 1/24
+# Due 1/31 (Extended for holidays)
 
 ## Expense Reimbursement System
 You are tasked with creating an expense reimbursement system. For a small company/group. This program will allow employees to create reimbursement requests.All Managers can view these requests and approve or deny them. When they approve/deny they can optionally leave a message.
@@ -44,5 +44,6 @@ You are tasked with creating an expense reimbursement system. For a small compan
 - Code analyzed with Sonar Cloud
 - Backend publicly available via ngrok
     - Can be hosted on Azure VM
+    - Can use App service as well
 - You will be doing daily standups with your Agile team
-    
+
