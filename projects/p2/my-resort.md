@@ -1,7 +1,7 @@
 # Project 2
 ## Paradise Villas
 You will be building several small applications for a fictional vacation resort/hotel called Paradise Villas. You can decide what it is, Ski Resort, Beach club, Crusie Ship have fun with it. Paradise Villas is making a push to use tech to optimize work flows and vactioner experience. Another team (mostly Adam coding frantically) has completed some back-end APIs to use for many of these services. Click here for  [User Stories](https://docs.google.com/spreadsheets/d/1VWnRGHYKemis4_Gjvx8Ypcf_aIhmMKNYZVdSQU-VH-8/edit?usp=sharing). 
-Click for diagram overview [Overview](https://docs.google.com/spreadsheets/d/1VWnRGHYKemis4_Gjvx8Ypcf_aIhmMKNYZVdSQU-VH-8/edit?usp=sharing)
+Click for diagram overview [Overview](https://drive.google.com/file/d/1X_9dNKCucQXgqYOaqbDPZYMegIWB4L4v/view?usp=sharing)
 - You should ues Azure Functions and API managment to glue these disconnected backends into a complete microservices-application. 
     - For example, you might find that the employee API does not have an endpoint or easy way to see what employees are currently on the clock. You can and should write an Azure function to create an easy endpoint that has that information. 
     - You should use API managment to have a consistent url to code your mobile and Front-end application 
