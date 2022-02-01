@@ -41,13 +41,13 @@ interface Event{
 - Example Post
     - http://localhost:8080/events
 ```json
-    {"id":0, "title":"Sample Event", "desc":"Awesome Thing", "startTime":123123123,"endTime":123123300, "location":"Ballroom","status":"On Schedule"}
+    {"id":"awefwefwefaf", "title":"Sample Event", "desc":"Awesome Thing", "startTime":123123123,"endTime":123123300, "location":"Ballroom","status":"On Schedule"}
 ```
 
 - Example Put
     - http://localhost:8080/events/7
 ```json
-    {"id":7, "title":"Sample Event", "desc":"Awesome Thing", "startTime":123123123,"endTime":123123300, "location":"Ballroom","status":"Cancelled"}
+    {"id":"fwefewfaerewaaewf", "title":"Sample Event", "desc":"Awesome Thing", "startTime":123123123,"endTime":123123300, "location":"Ballroom","status":"Cancelled"}
 ```
 
 - Implementation details
