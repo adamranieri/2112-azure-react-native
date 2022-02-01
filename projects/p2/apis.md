@@ -18,11 +18,11 @@ interface Reservation{
     - postman mock-server
 ---
 
-### Event API
+### Activity API
 - Tracks events
 - A Simple API that allows for creating and updating events
 ```ts
-interface Event{
+interface Activity{
     id: string
     title: string
     desc: string
@@ -34,10 +34,10 @@ interface Event{
 
 ```
 - Routes 
-    - GET /events
-    - GET /events/:id
-    - POST /events
-    - PUT /events
+    - GET /activities
+    - GET /activities/:id
+    - POST /activities
+    - PATCH /activities/:id/cancel
 - Example Post
     - http://localhost:8080/events
 ```json
