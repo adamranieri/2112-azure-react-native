@@ -16,7 +16,7 @@ Click for diagram overview [Overview](https://drive.google.com/file/d/1X_9dNKCuc
 This is a mobile app that the resort is pushing on it's guests to download. This app is designed to help assist them during their stay. 
 - **Technical Specs**
     - React Native Mobile App
-    - Uses the event API
+    - Uses the activity API
     - Uses the room service API
     - Uses the reservation API
     - Uses the problem API
@@ -26,7 +26,7 @@ This is a mobile app that the resort is using for its employees. The resort prov
 - **Technical Specs**
     - React Native Mobile App
     - Uses the employee API
-    - Uses the event API
+    - Uses the activity API
     - Uses the room service API
     - Uses the reservation API
     - Uses the problem API
