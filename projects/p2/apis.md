@@ -19,6 +19,7 @@ interface Reservation{
 ---
 
 ### Activity API
+- https://github.com/adamranieri/ActivityAPI
 - Tracks events
 - A Simple API that allows for creating and updating events
 ```ts
@@ -59,6 +60,7 @@ interface Activity{
     - Deployed as a conatiner on Azure Container Instances
 ---
 ### Room Service API
+- https://github.com/adamranieri/RoomServiceAPI
 - Allows for creating/viewing and updating room service requests
 - DTOs 
 ```ts
@@ -124,6 +126,7 @@ interface Problem{
 
 ---
 ### Employee API
+- https://github.com/adamranieri/PrismaEmployeeAPI
 ```ts
 interface Employee{
     id: number
