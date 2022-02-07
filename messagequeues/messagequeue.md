@@ -1,0 +1,28 @@
+# Messaging in Microservices
+- Your services need to talk to each other
+    - Services make HTTP requests to each other
+        - Fastest way to communicate
+        - Need to know the IP address of the service
+        - Service needs to be up and running
+- **Messaging Queues**
+    - Simple way for applications to talk to each other
+    - **TTL**
+        - Time to live
+        - How long a message can be in the queue before being deleted
+    - Advantages
+        - Services do not have to communicate directly with each other
+            - Helps to make microservices indepenedent and less coupled with each other
+        - Queues are VERY scalable
+            - Easy to scale produces and consumers
+        - Queues are VERY reliable
+            - A consumer goes down more messages will pile in the Queue with no messages being lost
+            - Unprocessable messgaes often go to a **dead letter queue** to viewed by developers
+        - Often very cheap
+    - Disadvantages
+        - ONE way data flow
+            - If you need infromation in a response then a queue is not for youe
+        - *Slow*
+            - Could takes seconds-hours for it to be processed from the queue
+            - Not good for anything that needs to be handled immmediately
+- **Service Bus**
+    - Azure's implementation of a queue service
